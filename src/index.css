@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Monaco, monospace;
+  
+  /* NIRVAAAN PRO DESIGN SYSTEM V11 - ELITE MEDICAL SaaS */
+  /* Primary: Deep, professional, calm healthcare emerald */
+  --color-primary: #064e3b; 
+  --color-primary-hover: #065f46;
+  --color-primary-dark: #022c22;
+  --color-primary-light: #f0fdf4;
+  
+  /* Elite Monochrome Grayscale (Linear/Stripe Standard) */
+  --color-slate-50: #f9fafb;
+  --color-slate-100: #f3f4f6;
+  --color-slate-200: #e5e7eb;
+  --color-slate-300: #d1d5db;
+  --color-slate-400: #9ca3af;
+  --color-slate-500: #6b7280;
+  --color-slate-600: #4b5563;
+  --color-slate-700: #374151;
+  --color-slate-800: #1f2937;
+  --color-slate-900: #111827;
+  --color-slate-950: #030712;
+
+  /* Semantic Branding Aliases */
+  --color-bg-main: #ffffff;
+  --color-bg-secondary: #f9fafb;
+  --color-card: #ffffff;
+  --color-border-main: #e5e7eb;
+  --color-text-main: #030712;
+  --color-text-secondary: #4b5563;
+  --color-text-placeholder: #9ca3af;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-3xl: 48px;
+  
+  /* Elite Diffusion Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.08);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.08);
+  --shadow-premium: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.04), 0 12px 24px rgba(0, 0, 0, 0.04);
+}
+
+@layer base {
+  body {
+    @apply bg-bg-main text-text-main font-sans antialiased text-[14px];
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* High-fidelity SaaS Buttons */
+  .btn-primary {
+    @apply px-7 py-3.5 bg-primary text-white font-semibold rounded-2xl shadow-premium hover:bg-primary-dark hover:-translate-y-0.5 active:scale-95 transition-all flex items-center justify-center gap-2 tracking-tight;
+  }
+
+  .btn-secondary {
+    @apply px-7 py-3.5 bg-white text-text-main font-semibold rounded-2xl border border-border-main shadow-sm hover:bg-slate-50 hover:border-slate-300 active:scale-95 transition-all flex items-center justify-center gap-2 tracking-tight text-sm;
+  }
+
+  /* Cards & Surfaces */
+  .section-card {
+    @apply bg-white border border-border-main rounded-[24px] shadow-premium p-8 transition-all;
+  }
+  
+  .card-hover {
+    @apply hover:border-slate-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  /* Typography Hierarchy - Elite SaaS Standard */
+  .typography-h1 { 
+    @apply font-display text-5xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-slate-950; 
+  }
+  .typography-h2 { 
+    @apply font-display text-3xl lg:text-4xl font-bold tracking-tight text-slate-900 leading-tight; 
+  }
+  .typography-h3 { 
+    @apply font-display text-xl lg:text-2xl font-bold tracking-tight text-slate-900; 
+  }
+  
+  .typography-label {
+    @apply text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 select-none;
+  }
+  
+  .typography-body {
+    @apply text-base text-text-secondary leading-relaxed;
+  }
+
+  /* Specialized UI Elements */
+  .ai-inner-block {
+    @apply bg-white/5 border border-white/5 rounded-2xl p-6 backdrop-blur-md;
+  }
+
+  .ai-insight-card {
+    @apply relative overflow-hidden bg-slate-950 rounded-[32px] p-10 flex flex-col shadow-2xl;
+  }
+
+  /* Layout Utilities */
+  .dashboard-grid {
+    @apply grid grid-cols-1 lg:grid-cols-12 gap-10;
+  }
+  
+  .dashboard-sidebar {
+    @apply lg:col-span-4 space-y-8;
+  }
+  
+  .dashboard-main {
+    @apply lg:col-span-8 space-y-10;
+  }
+
+  /* Navigation */
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-950 hover:bg-slate-50 rounded-xl transition-all text-sm font-semibold;
+  }
+  
+  .sidebar-link-active {
+    @apply bg-white text-slate-950 shadow-md shadow-slate-100 border border-slate-100 font-bold;
+  }
+
+  /* Status Indicators */
+  .status-badge {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border;
+  }
+  
+  .status-success { @apply bg-primary-light text-primary border-primary/10; }
+  .status-error { @apply bg-slate-100 text-slate-700 border-slate-200; }
+  .status-warning { @apply bg-slate-100 text-slate-500 border-slate-200; }
+  .status-info { @apply bg-primary-light text-primary border-primary/10; }
+
+  /* Medical Aesthetics: EKG Grid */
+  .bg-ekg-grid {
+    background-image: 
+      linear-gradient(to right, rgba(6, 78, 59, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(6, 78, 59, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Diagnostic Medical Elements */
+  .input-diagnostic {
+    @apply border border-slate-200 bg-slate-50/50 rounded-xl px-4 py-3 outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary/30 focus:bg-white transition-all shadow-inner font-medium text-slate-700;
+  }
+
+  @keyframes heartbeat {
+    0%, 100% { stroke-dashoffset: 200; stroke-dasharray: 200; opacity: 0.3; }
+    50% { stroke-dashoffset: 0; stroke-dasharray: 200; opacity: 1; }
+  }
+}
+
+/* Transitions */
+.page-transition {
+  @apply transition-all duration-300 ease-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full hover:bg-slate-300;
+}
+
+
